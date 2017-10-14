@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background: #ffffff;
+}
 ul, ol{
     list-style: none;
 }
@@ -85,6 +88,27 @@ img{
     display: none;
 }
 /*nav 结束*/
+/*site-header开始*/
+.site-header{
+    height: 100px;
+    position: relative;
+}
+.site-header .logo{
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+}
+.site-header .logo:after{
+    content: '';
+    background: url("../img/mi-logo.png") no-repeat center;
+    width: 55px;
+    height: 55px;
+    display: block;
+}
+/*site-header结束*/
 
 
 
