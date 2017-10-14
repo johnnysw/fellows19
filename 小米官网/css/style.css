@@ -24,7 +24,7 @@ img{
 /*banner 开始*/
 .banner{
     height: 120px;
-    background: url("../img/banner.jpg") no-repeat 50% 50%;
+    background: url("../img/banner2.jpg") no-repeat 50% 50%;
 }
 .banner a{
     display: block;
@@ -91,21 +91,58 @@ img{
 /*site-header开始*/
 .site-header{
     height: 100px;
-    position: relative;
+    line-height: 100px;
+    /*position: relative;*/
 }
-.site-header .logo{
+.site-header .header-logo{
+    display: block;
     width: 55px;
     height: 55px;
     background-color: #ff6700;
-    position: absolute;
+    float: left;
+    margin-top: 22px;
+    /*position: absolute;
     top: 50%;
-    margin-top: -27px;
+    margin-top: -27px;*/
 }
-.site-header .logo:after{
+.site-header .header-logo:after{
     content: '';
     background: url("../img/mi-logo.png") no-repeat center;
     width: 55px;
     height: 55px;
+    display: block;
+}
+.site-header .header-nav{
+    float: left;
+    background: #cccccc;
+    height: 100%;
+    /*position: absolute;
+    left: 158px;*/
+    margin-left: 158px;
+}
+.site-header .nav-item{
+    float: left;
+    height: 100%;
+    line-height: 100px;
+}
+.site-header .nav-item a{
+    padding: 0 10px;
+}
+.site-header .header-sub-nav{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    display: none;
+    /*transition: height 0.5s ease-out 0.5s;*/
+}
+.site-header .header-sub-nav li{
+    float: left;
+}
+.site-header .nav-item:hover .header-sub-nav{
     display: block;
 }
 /*site-header结束*/

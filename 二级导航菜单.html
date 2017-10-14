@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #ul1{
+            margin-left: 50px;
+            margin-top: 50px;
+            height: 30px;
+        }
+        #ul1 li{
+            float: left;
+            width: 120px;
+            height: 30px;
+            background: #cccccc;
+            margin-right: 2px;
+        }
+        #ul1 a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        #ul1 .sub-menu{
+            overflow: hidden;
+            display: none;
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
+        #ul1 .sub-menu li{
+            background: #ff0000;
+        }
+
+        #ul1 li:hover .sub-menu{
+            display: block;
+        }
+        h1{
+            background: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul1">
+        <li>
+            <a href="#">item 1</a>
+            <ul class="sub-menu">
+                <li><a href="#">sub item 1</a></li>
+                <li><a href="#">sub item 2</a></li>
+                <li><a href="#">sub item 3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">item 2</a>
+        </li>
+        <li>
+            <a href="#">item 3</a>
+        </li>
+    </ul>
+    <h1>hahahaah</h1>
+
+</body>
+</html>
