@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body {
+            margin: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <!--  -->
+    <div id="div1">div</div>
+
+    <script>
+        //js没有块级作用域
+        /* if(false){
+            var a = 5;
+        }
+        console.log(a); */
+
+        /* let a = 5;
+        function foo(){
+            console.log(a);
+            //....
+            if(false){
+                let a = 6;
+            }
+        }
+        foo(); */
+
+        /* for(var i=0; i<3; i++){
+            console.log('循环内=' + i);//0 1 2
+        }
+        console.log('循环外=' + i); */
+
+        /* console.log("1=" + a);
+        var a = 5;
+        var a = function(){
+            console.log('4=' + a);
+        };
+        function a(){
+            console.log("2=" + a);
+        }
+        // a = 6;
+        a();
+        console.log("3=" + a); */
+
+        // fn();
+        /* function fn(){//new Function()
+            console.log('fn');
+        }
+        console.log(typeof fn); */
+
+        /* var fn = function(){
+            console.log('fn');
+        };
+        fn(); */
+
+        /*         let a = 5;
+                let a = 6;
+                console.log(a); */
+
+        /* var a = 5;
+        function foo(){
+            console.log('1=' + a);
+            var a = 6;
+            console.log('2=' + a);
+        }
+        foo(); */
+
+        /* var a = 5;
+        a = 'abc';
+        console.log(a); */
+
+        // var sUserName = 'zhangsan';
+
+        /* var a = 5;
+        var b = a;
+        a = 6;
+        console.log(b); */
+
+        /* var obj1 = {
+            name: 'lisi',
+            age: 18
+        };
+        var obj2 = obj1;
+        obj1.name = 'zhangsan';
+        console.log(obj2.name); */
+        /* if(null === undefined){
+            console.log(true);
+        }else{
+            console.log(false);
+        }
+        console.log(typeof null); */
+
+        /* var oDiv = document.getElementById('div2');
+        console.log(oDiv);
+
+        var max = Math.pow(2, 53);
+        console.log(max);
+        console.log(max - 1);
+        console.log(Number.MAX_SAFE_INTEGER);
+        console.log(Number.MIN_SAFE_INTEGER); */
+
+        /* var a = 5;
+        console.log(a.toString(2));// 十进制 =》 二进制
+
+        var b = 101;
+        console.log(parseInt(101, 2));// 二进制 =》 十进制 */
+
+
+        (function () {//函数立即调用
+            var a = 5;
+
+
+        })();
+
+        var x = 1;
+        function foo(x, y = function () { x = 2; }) {
+            x = 3;
+            y();
+            console.log(x);
+        }
+        foo();
+        console.log(x);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

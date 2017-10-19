@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 随机生成两个小数给变量x.y，然后显示这两个数中的最大值。
+        （提示：语句“var x=Math.random();”可为变量生成一个随机小数：
+        另外，使用条件运算符‘'?:")
+    -->
+    <script>
+        //10~100
+
+        console.log(Math.floor(Math.random() * 91) + 10);
+
+        function getMax(x, y){
+            return x > y ? x : y;
+        }
+        var num1 = Math.random();
+        var num2 = Math.random();
+        var result = getMax(num1, num2);
+        document.write('产生的随机数是:' + num1 + ' 和 ' + num2 + ',最大值是' + result);
+
+    </script>
+</body>
+
+</html>
