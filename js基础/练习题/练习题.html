@@ -97,17 +97,71 @@
 
         })(); */
 
-        function foo() {
+        /* function foo() {
             console.log(arguments[0], arguments[1], arguments[2]);
         }
         foo(1, 2, 3);
 
         //var let const
 
+        var obj1 = {
+            name: 'xx',
+            age: 18
+        };//对象直接量
+
+        var obj2 = new Object();
+        obj2.name = 'yy';
+        obj2.age = 20;
+
+        Math.random();// 静态方法
+
+        //类：人类    对象
+        var arr = [1,2,3];//new Array()
+        arr.push(4);
+        //GC
 
 
+        var now = new Date();
+        console.log(now);
 
+        var str = 'abc';
+        // var str2 = new String('abc');
+        for(var i=0; i<str.length; i++){
+            console.log(str.charAt(i));
+        }
 
+        if(str.indexOf('xx') != -1){
+
+        } */
+
+        /* var str = "Hello happy world!"
+        console.log(str.slice(-2, -1)); */
+
+        var arr = [4, 2, 6, 3];
+        console.log(arr.sort(function(a, b){
+            console.log(a, b);
+            return a - b;
+        }));
+
+        /* var arr = [1, 2, 3, 4, 5];
+        console.log(arr.sort(function(){
+            return Math.random() - 0.5;
+        })); */
+        /* var arr = new Array(6)
+        arr[0] = "George"
+        arr[1] = "John"
+        arr[2] = "Thomas"
+        arr[3] = "James"
+        arr[4] = "Adrew"
+        arr[5] = "Martin"
+
+        document.write(arr + "<br />")
+        arr.splice(2, 2, "William")
+        document.write(arr + "<br />") */
+
+        /* var arr = ['a', 'b', 'c', NaN, 'abc'];
+        console.log(arr.indexOf(NaN));
+        console.log(arr.includes('xx'));//ES6 */
 
     </script>
 </body>
