@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        #ul1{
+            /* overflow: hidden; */
+            /* height: 30px; */
+            /* float: left; */
+            /* position: absolute; */
+        }
+
+        #ul1 li {
+            float: left;
+        }
+
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul1" class="clearfix">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+</body>
+
+</html>
