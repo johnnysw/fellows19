@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+        }
+        /* 多类选择器 */
+        #div1.aa{
+            width : 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">开始动画</button>
+    <div id="div1"></div>
+
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div1');
+        oBtn.onclick = function(){
+            // console.log(oDiv.style.width);
+            // oDiv.style.width = '500px';
+            // oDiv.className = 'aa';
+            var timer = setInterval(function(){
+                oDiv.style.width = oDiv.offsetWidth + 10 + 'px';
+                oDiv.style.height = oDiv.offsetHeight + 10 + 'px';
+                oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+                if(oDiv.offsetWidth >= 500){
+                    clearInterval(timer);
+                }
+            }, 30);
+
+        };
+        // 对象.style.属性
+        // 对象.offsetWidth
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            border: 1px solid;
+            width: 320px;
+            height: 200px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #tab {
+            width: 440px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #tab li {
+            width: 100px;
+            height: 100px;
+            background: #000000;
+            color: #fff;
+            float: left;
+            font-size: 40px;
+            text-align: center;
+            line-height: 100px;
+            margin-right: 10px;
+        }
+
+        #arrows {
+            width: 130px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -65px;
+        }
+
+        #arrows span {
+            width: 60px;
+            height: 20px;
+            background: #cccccc;
+            float: left;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="tab">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrows">
+            <span id="left">向左</span>
+            <span id="right">向右</span>
+        </div>
+    </div>
+
+    <script>
+        var oTab = document.getElementById('tab');
+        var oLeft = document.getElementById('left');
+        var oRight = document.getElementById('right');
+        var direction = 10;
+
+        oTab.innerHTML += oTab.innerHTML;
+        oTab.style.width = oTab.offsetWidth * 2 + 'px';
+        setInterval(function(){
+            oTab.style.left = (oTab.offsetLeft - direction) + 'px';
+            if(-oTab.offsetLeft >= oTab.offsetWidth / 2){
+                oTab.style.left = 0;
+            }
+            if(oTab.offsetLeft > 0){
+                oTab.style.left = -oTab.offsetWidth / 2 - direction + 'px';
+            }
+        }, 50);
+
+        oLeft.onmouseover = oRight.onmouseover = function(){
+            if(this === oLeft){
+                direction = 10;
+            }else{
+                direction = -10;
+            }
+        };
+
+    </script>
+
+</body>
+
+</html>
