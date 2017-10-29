@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #div1 {
+            height: 200px;
+            background: #ff0000;
+        }
+
+        img {
+            /* display: block; */
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+        };
+    </script>
+</head>
+
+<body>
+    <img src="img/2.jpg" alt="" id="pic"> 这是一张图片
+    <!-- <div id="div1"></div> -->
+
+    <!-- <script src='xx.js'></script> -->
+    <script>
+        var oPic = document.getElementById('pic');
+        oPic.onload = function () {
+            console.log(oPic.offsetWidth);
+        };
+    </script>
+
+
+</body>
+
+</html>
