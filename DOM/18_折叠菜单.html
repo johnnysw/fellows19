@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 200px;
+            border: 1px solid;
+            text-align: center;
+            margin: 100px auto;
+        }
+
+        #container h3 {
+            background: #000000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #container .submenu li:hover {
+            background: #cccccc;
+        }
+
+        #container .submenu ul {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="container">
+        <li class="submenu">
+            <h3>管理区</h3>
+            <ul>
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <h3>交流区</h3>
+            <ul>
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script src="jslib.js"></script>
+    <script>
+        var oContainer = document.getElementById('container');
+        var aH3 = oContainer.getElementsByTagName('h3');
+        var aUl = oContainer.getElementsByTagName('ul');
+        for (var i = 0; i < aH3.length; i++) {
+            // aH3[i].index = i;
+            aH3[i].bFlag = false;//false表示关闭,true表示打开
+            aH3[i].onclick = function () {
+                var oUl = next(this);
+                /* if(oUl.style.display == 'block'){//关闭
+                    oUl.style.display = 'none';
+                }else{//打开
+                    oUl.style.display = 'block';
+                } */
+                if (this.bFlag) {
+                    oUl.style.display = 'none';
+                } else {
+                    oUl.style.display = 'block';
+                }
+                this.bFlag = !this.bFlag;
+            };
+        }
+
+
+    </script>
+</body>
+
+</html>
