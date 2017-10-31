@@ -48,14 +48,12 @@
                     elem.style.width = elem.offsetWidth - 10 + 'px';
                     if (elem.offsetWidth <= 100) {
                         clearInterval(elem.timer);
+                        elem.style.width = '100px';
                     }
                 }, 30);
             };
         }
-
     </script>
-
-
 </body>
 
 </html>
