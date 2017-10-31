@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="div1">div1</div>
+    <div id="div2">div2</div>-->
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul> 
+
+    <!-- <h1 id="h1">h1h1h1</h1>
+    <div>divdivdiv</div> -->
+
+
+
+    <script>
+        // var oDiv1 = document.getElementById('div1');
+        // var oDiv2 = document.getElementById('div2');
+        // var oUl1 = document.getElementById('ul1');
+        // console.log(oDiv1.nextElementSibling);//nextSibling
+        // console.log(oDiv2.previousElementSibling);//previousSibling
+        // console.log(oUl1.firstElementChild);
+        // console.log(oUl1.lastElementChild);
+        // console.log(oUl1.firstChild);
+        // console.log(oUl1.children);
+        // var oH1 = document.getElementById('h1');
+        // console.log(next(oH1));
+
+        var oUl1 = document.getElementById('ul1');
+        console.log(first(oUl1));
+
+        //找到elem的下一个兄弟元素 nodeType=1
+        function next(elem){
+            do{
+                elem = elem.nextSibling;
+            }while(elem && elem.nodeType != 1);
+            return elem;
+        }
+
+        //找到elem的第一个孩子元素
+        function first(elem){
+            elem = elem.firstChild;
+            return elem.nodeType == 1 ? elem : next(elem);
+        }
+
+        //我的函数库  jslib.js
+
+
+    </script>
+</body>
+
+</html>

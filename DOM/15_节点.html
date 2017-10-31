@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- dom节点 -->
+    <!-- <img src="xx.jpg" alt="" id="pic"> -->
+    <div id="div1">div1</div>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+    <ul id="ul2">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+
+    <div id="div2">
+        <div class="aa">11</div>
+        <div class="aa">22</div>
+    </div>
+
+    <form action="xx.java/login">
+        用户名:  <input type="text" name="username">
+        密码:  <input type="password" name="pwd">
+        爱好：
+            <input type="checkbox" name="hobby">足球
+            <input type="checkbox" name="hobby">篮球
+            <input type="checkbox" name="hobby">排球
+
+        <input type="submit">
+    </form>
+    <h1>h1hh1</h1>
+
+    <script>
+        /* var oPic = document.getElementById('pic');
+        oPic.onload = function () {
+            console.log(oPic.offsetWidth);
+        }; */
+        var oDiv1 = document.getElementById('div1');
+        console.log(oDiv1);
+
+        var oUl1 = document.getElementById('ul1');
+        var aLi = oUl1.getElementsByTagName('li');
+        console.log(aLi);
+
+        var oDiv2 = document.getElementById('div2');
+        // var aa = oDiv2.getElementsByClassName('aa');//兼容性问题
+        // console.log(aa);
+
+        var result = getByClassName('aa', oDiv2);
+        console.log(result);
+
+        console.log(document.getElementsByName('hobby'));//兼容性问题
+        
+        var oDiv22 = document.querySelector('#div2 .aa');//兼容性问题
+        var aaaa = document.querySelectorAll('#div2 .aa');//兼容性问题
+        console.log(aaaa);
+
+
+        //封装函数，通过class的名字获取元素
+        function getByClassName(clsName, context) {
+            context = context || document;
+            if(context.getElementsByClassName){//能力检测
+                return context.getElementsByClassName(clsName);
+            }else{
+                var allList = context.getElementsByTagName('*');
+                var result = [];
+                for(var i=0; i<allList.length; i++){
+                    //暂时还不完善，完整的需要用到正则表达式
+                    if(allList[i].className.indexOf(clsName) != -1){
+                        result.push(allList[i]);
+                    }
+                }
+                return result;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
