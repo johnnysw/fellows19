@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+        }
+
+        #container {
+            width: 520px;
+            height: 280px;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #tab {
+            height: 20px;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #tab li,
+        #arrows span {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            cursor: pointer;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+        }
+
+        #tab .selected {
+            background: orange;
+        }
+
+        #arrows {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #imgs {
+            width: 2080px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #imgs img {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="imgs">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+        <ul id="tab">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+
+    <script src="wichung-1.0.js"></script>
+    <script>
+        //等到dom结构和资源文件都下载完成以后才执行 
+        window.onload = function () {
+            var oContainer = id('container');
+            var oTab = id('tab');
+            var aLi = oTab.children;
+            var oImgs = id('imgs');
+            var aImg = oImgs.children;//4
+            var oImgWidth = aImg[0].offsetWidth;
+            var oPrev = id('prev');
+            var oNext = id('next');
+            var iNowIndex = 0;
+            var timer;
+
+            oImgs.appendChild(aImg[0].cloneNode());
+            oImgs.style.width = oImgWidth * aImg.length + 'px';//aImg.length=5
+
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].index = i;
+                aLi[i].onmouseover = function () {
+                    iNowIndex = this.index;
+                    changeImg();
+                };
+            }
+
+            oPrev.onclick = oNext.onclick = function () {
+                if (this === oPrev) {
+                    iNowIndex--;
+                    if (iNowIndex == -1) {
+                        iNowIndex = aLi.length - 1;
+                        oImgs.style.left = -(aImg.length - 1) * oImgWidth + 'px';
+                    }
+                } else {
+                    iNowIndex++;
+                    if (iNowIndex == aImg.length) {//5
+                        iNowIndex = 1;
+                        oImgs.style.left = 0;
+                    }
+                }
+                changeImg();
+            };
+            play();
+
+            oContainer.onmouseover = function () {
+                clearInterval(timer);
+            };
+            oContainer.onmouseout = function () {
+                play();
+            };
+
+            function changeImg() {
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].className = '';
+                }
+                aLi[iNowIndex == aLi.length ? 0 : iNowIndex].className = 'selected';
+
+                //图片切换
+                animate(oImgs, {
+                    left: -oImgWidth * iNowIndex
+                });
+            }
+
+            function play() {
+                timer = setInterval(function () {
+                    oNext.onclick();
+                }, 1000);
+            }
+        };
+
+        //imgs  left
+        //iNowIndex = ？
+
+    </script>
+</body>
+
+</html>
