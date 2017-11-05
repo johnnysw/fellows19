@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">增加</button>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <script>
+        var oUl = document.getElementById('ul1');
+        var aLi = oUl.getElementsByTagName('li');
+        var oBtn = document.getElementById('btn');
+        /* for (var i = 0; i < aLi.length; i++) {
+            aLi[i].onclick = function () {
+                console.log(this.innerHTML);
+            };
+        } */
+        oUl.onclick = function (e) {
+            console.log(e.currentTarget);//this
+            console.log(e.target);//事件源
+            
+
+            /* var target = e ? e.target : window.event.srcElement;
+            if(target != this){
+                console.log(target.innerHTML);
+            } */
+        };
+
+        oBtn.onclick = function () {
+            var oLi = document.createElement('li');
+            oLi.innerHTML = Math.random();
+            oUl.appendChild(oLi);
+        };
+
+    </script>
+</body>
+
+</html>
