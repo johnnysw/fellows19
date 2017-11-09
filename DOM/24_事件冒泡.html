@@ -70,7 +70,7 @@
             console.log('div3');
             e.stopPropagation();
         }, false); */
-         /* oDiv1.attachEvent('onclick', function(){
+        /* oDiv1.attachEvent('onclick', function(){
             console.log(this);
         }); */
         /*oDiv1.attachEvent('onclick', function(){
@@ -89,19 +89,37 @@
             window.event.cancelBubble = true;
         }); */
 
-        addEvent(oDiv1, 'click', function(){
-            alert(123);
-        });
+        var fn = function () {
+            console.log(this);
+        };
 
-        function addEvent(elem, type, handler){
-            if(elem.addEventListener){
-                elem.addEventListener(type, handler);
-            }else if(elem.attachEvent){
-                elem.attachEvent('on' + type, handler);
-            }else{
-                elem['on'+type] = handler;
+        addEvent(oDiv1, 'click', fn);
+        removeEvent(oDiv1, 'click', fn);
+
+        function addEvent(elem, type, handler) {
+            if (elem.addEventListener) {
+                elem.addEventListener(type, handler, false);
+            } else if (elem.attachEvent) {
+                elem.fnxx = function () {
+                    handler.call(elem);
+                };
+                elem.attachEvent('on' + type, elem.fnxx);
+            } else {
+                elem['on' + type] = handler;
             }
         }
+
+        function removeEvent(elem, type, handler) {
+            if (elem.removeEventListener) {
+                elem.removeEventListener(type, handler);
+            } else if (elem.detachEvent) {
+                elem.detachEvent('on' + type, elem.fnxx);
+            } else {
+                elem['on' + type] = null;
+            }
+        }
+
+
 
 
         /* var obj = {
@@ -110,9 +128,6 @@
         };
         // var n = 'name';
         console.log(obj['name']); */
-
-
-         
     </script>
 </body>
 

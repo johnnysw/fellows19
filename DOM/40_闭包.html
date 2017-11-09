@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <!-- 
+        闭包：外部函数里面定义内部函数，内部函数引用外部函数的变量，外部变量不会被回收
+     -->
+
+    <script>
+        var oUl1 = document.getElementById('ul1');
+        var aLi = oUl1.children;
+        for (var i = 0; i < aLi.length; i++) {
+            // aLi[i].index = i;
+            (function (idx) {
+                aLi[idx].onclick = function () {
+                    console.log(idx);
+                };
+            })(i);
+        }
+
+        function fn1(){
+            function fn2(){
+                var a = 5;
+                return a;
+            }
+            return fn2;
+        }
+        console.log(fn1()());
+
+        //gc
+    </script>
+</body>
+
+</html>

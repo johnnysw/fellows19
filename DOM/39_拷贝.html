@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 5;
+        var b = a;
+        a = 6;
+        console.log(b);
+
+        var obj1 = {
+            name: 'zhangsan',
+            age: 18,
+            dad: {
+                name: 'zhanger',
+                age: 48,
+                dad: {
+                    dad:{
+
+                    }
+                }
+            }
+        };
+        /* var obj2 = obj1;//浅拷贝
+        obj1.name = 'lisi';
+        console.log(obj2.name); */
+
+
+        /* var obj2 = {};
+        obj2.name = obj1.name;
+        obj2.age = obj1.age;
+        obj1.name = 'lisi';
+        console.log(obj2.name); */
+
+        //实现深拷贝
+        function clone(obj){
+            var newObj = {};
+            for(var p in obj){
+                if(typeof obj[p] == 'object'){
+                    newObj[p] = clone(obj[p]);
+                }else{
+                    newObj[p] = obj[p];
+                }
+            }
+            return newObj;
+        }
+
+        var obj2 = clone(obj1);
+        obj1.dad.name = 'zhangyi';
+        console.log(obj2);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
