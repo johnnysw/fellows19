@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+
+    <script>
+        var oDiv = document.getElementById('div1');
+        window.onscroll = function(){
+            var iScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            oDiv.style.top = iScrollTop + 500 + 'px';
+        };
+
+
+    </script>
+</body>
+
+</html>
