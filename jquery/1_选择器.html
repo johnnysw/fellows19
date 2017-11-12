@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        input[type="text"][name="username"]:focus {
+            background: #ff0000;
+        }
+        input[type="text"][name="username"] {
+            background: #00ff00;
+        }
+        /*  #ul1 li:first-child{
+            background: #ff0000;
+        } */
+    </style>
 </head>
 
 <body>
@@ -35,6 +46,28 @@
         </tr>
     </table>
 
+    <form action="">
+        userID:
+        <input type="text" value="1" name="userid" disabled>
+        <input type="text" value="1" name="username">
+
+        头像:  <input type="image">
+    </form>
+
+    <div>
+        <span>Corey,</span>
+        <span>Yehuda,</span>
+        <span>Adam,</span>
+        <span>Todd</span>
+    </div>
+    <div>
+        <b>Nobody,</b>
+        <div>div</div>
+        <span>Jörn,</span>
+        <span>Scott,</span>
+        <span>Timo</span>
+    </div>
+
     <script src="jquery-3.2.1.js"></script>
 
     <script>
@@ -55,8 +88,21 @@
         // $('#ul1 li:not(.aa)').css('background', 'green');
         // $('#ul1 li:contains(3)').css('background', 'green');
 
-        $("td:parent").css('background', 'green');
+        // $("td:parent").css('background', 'green');
+
+        // $('#ul1 li:first-child').css('background', 'green');
+        // $("span:first-of-type").css('background', 'green');
+
+        $('#ul1 li:nth-last-child(2)').css('background', 'green');
+        
     </script>
 </body>
 
 </html>
+<!-- 
+    1 2 3
+    4 5 6
+    7 8 9
+    :nth-child(3n+1)  margin-left:
+    :nth-child(3n)  margin-right
+ -->

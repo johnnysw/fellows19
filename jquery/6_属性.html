@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">div</div>
+
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var oDiv = document.getElementById('div1');
+            /* oDiv.aa = '123';
+            console.log(oDiv.aa); */
+            /* oDiv.setAttribute('bb', '345');
+            console.log(oDiv.getAttribute('bb')); */
+            var $div1 = $('#div1');
+            $div1.attr('aa', 123);
+            console.log( $div1.attr('aa'));
+
+            $div1.prop('bb', 345);
+            console.log($div1.prop('bb'));
+
+        });
+    </script>
+</body>
+
+</html>
