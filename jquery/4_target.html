@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            /* overflow: hidden; */
+        }
+        #nav{
+            height: 30px;
+        }
+        #nav li{
+            width: 100px;
+            height: 30px;
+            background: #cccccc;
+            float: left;
+            margin-right: 5px;
+            list-style: none;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+        }
+        div{
+            height: 400px;
+        }
+        #menu1{
+            background: #ff0000;
+            margin-top: 800px;
+        }
+        #menu2{
+            background: #00ff00;
+        }
+        #menu3{
+            background: #0000ff;
+            margin-bottom: 800px;
+        }
+        #menu3:target{
+            background: #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <!-- 锚点 -->
+    <ul id="nav">
+        <li><a href="#menu1">菜单1</a> </li>
+        <li><a href="#menu2">菜单2</a></li>
+        <li><a href="#menu3">菜单3</a></li>
+    </ul>
+
+    <div id="menu1"></div>
+    <div id="menu2"></div>
+    <div id="menu3"></div>
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function(){
+            /* $('#nav li:last').on('click', function(){
+                setTimeout(function(){
+                    $('#menu3:target').css('background', '#ff0');
+                }, 1000);
+            }); */
+
+
+
+
+
+        });
+    
+    </script>
+</body>
+</html>
