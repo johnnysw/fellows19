@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .aa{
+            background: #ff0000;
+        }
+        .bb{
+            color: #0f0;
+        }
+    
+    </style>
 </head>
 
 <body>
-    <div id="div1">div</div>
+    <div id="div1" class="aa">div</div>
+    <input type="text" id="username" value="zhangsan">
 
 
     <script src="jquery-3.2.1.js"></script>
@@ -22,11 +32,33 @@
             console.log(oDiv.getAttribute('bb')); */
             var $div1 = $('#div1');
             $div1.attr('aa', 123);
+            $div1.removeAttr('aa');
             console.log( $div1.attr('aa'));
 
             $div1.prop('bb', 345);
             console.log($div1.prop('bb'));
 
+            console.log($('#username').val());
+
+            //链式操作
+            // $div1.addClass('aa').addClass('bb');
+            // $div1.css('background', 'red');
+            /* $div1.css({
+                'background-color': 'red',
+                color: 'green',
+            }); */
+
+            /* $div1.css('width', function(){
+                //....
+                return 200;
+            }); */
+            // console.log();
+            // $div1.hasClass('bb').css('background', 'red');
+            // $div1.removeClass('aa');
+
+            /* $div1.on('click', function(){
+                $(this).toggleClass('aa');
+            }); */
         });
     </script>
 </body>

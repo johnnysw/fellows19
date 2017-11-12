@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+
+    </div>
+
+
+
+    <script src='jquery-3.2.1.js'></script>
+    <script>
+        var obj1 = {
+            name: 'zhangsan'
+        };
+        var obj2 = {
+            name: 'lisi',
+            age: 18
+        };
+        var obj3 = {
+            school: '农大'
+        };
+        $.extend(obj1, obj2, obj3);
+        console.log(obj1);
+
+
+
+
+        var defaultSettings = {
+            width: 400,
+            height: 300
+        };
+
+        var userSettings = {
+            width: 500
+        };
+
+        $.extend(defaultSettings, userSettings);
+
+
+        $('#div1').load('login.html');
+    </script>
+</body>
+
+</html>
