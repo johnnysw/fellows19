@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt" value="hello">
+    <div id="div1"  class="aa"></div>
+    <div id="div2" data-xx-zz='aa' ></div>
+
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            /* $('li').eq(1)
+            var a = 5;
+            $('li:not(' + (a + 2) + ')') */
+            /* var oIpt = document.getElementById('ipt');
+            console.log(oIpt.defaultValue);
+            console.log(oIpt.value);
+
+            console.log($('#ipt').val());
+            console.log($('#ipt').prop('value'));
+            
+            .className += ' bb ';
+            $('#div1').addClass('bb');
+
+            .css('background', 'red')
+            .css({
+                'background-color': 'red',
+                color: 'green'
+            });
+            .css('width', function(){
+                //.....
+                return 200;
+            }); */
+
+            console.log($('#div2').attr('data-xx'));
+            console.log($('#div2').data('xxZz'));
+
+
+            .animate({
+                width: '+=20'
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
