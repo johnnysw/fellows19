@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="all">全选</button>
+    <input type="checkbox" name="hobby">足球
+    <input type="checkbox" name="hobby">篮球
+    <input type="checkbox" name="hobby">排球
+
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function(){
+            $('#all').on('click', function(){
+                /* var re1 = $('input[name="hobby"]').trigger('click');
+                console.log(re1); */
+                var re2 = $('input[name="hobby"]').triggerHandler('click');
+                console.log(re2);
+                
+            });
+        });
+    
+    </script>
+</body>
+</html>
