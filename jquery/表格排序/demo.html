@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>表格排序</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: verdana;
+            font-size: 12px;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #999;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 6px 0;
+            text-align: center;
+            border: 1px solid #999;
+        }
+
+        th {
+            background-color: #CCC;
+            color: #ffffff;
+        }
+
+        .sort_able {
+            cursor: pointer;
+            padding: 0 28px;
+        }
+
+    </style>
+</head>
+
+<body>
+<table id="tableSort">
+    <thead>
+    <tr>
+        <th width="30%" data-sorttype="number" data-sort="asc">会员ID</th>
+        <th width="30%" data-sorttype="string" data-sort="asc">会员名</th>
+        <th data-sorttype="string" data-sort="asc">注册时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>16</td>
+        <td>webw3c</td>
+        <td>2011-04-13</td>
+    </tr>
+    <tr>
+        <td>45</td>
+        <td>test001</td>
+        <td>2011-03-27</td>
+    </tr>
+    <tr>
+        <td>116</td>
+        <td>wuliao</td>
+        <td>2011-04-01</td>
+    </tr>
+    <tr>
+        <td>29</td>
+        <td>tired</td>
+        <td>2011-04-06</td>
+    </tr>
+    <tr>
+        <td>155</td>
+        <td>tiredso</td>
+        <td>2011-04-06</td>
+    </tr>
+    <tr>
+        <td>31</td>
+        <td>javascript</td>
+        <td>2011-04-08</td>
+    </tr>
+    <tr>
+        <td>132</td>
+        <td>jquery</td>
+        <td>2011-04-12</td>
+    </tr>
+    </tbody>
+</table>
+<script src="../jquery-3.2.1.min.js"></script>
+<script>
+    $(function () {
+        var $tbl = $('#tableSort'),
+            $tbody = $('tbody', $tbl);
+        $('th', $tbl).on('click', function () {
+            //获取当前th的排序方式
+            var sortType = $(this).data('sorttype');
+            var sort = $(this).data('sort');
+            var thIndex = $(this).index();
+
+            //进行排序
+            var arrTr = [];
+            $('tr', $tbody).each(function () {
+                arrTr.push(this);
+            });
+
+            arrTr.sort(function (a, b) {
+                var aHTML = a.children[thIndex].innerHTML;
+                var bHTML = b.children[thIndex].innerHTML;
+                if (sortType == 'number') {//数字排序
+                    return sort == "asc" ? aHTML - bHTML : bHTML - aHTML;
+                } else {
+                    return sort == "asc" ? aHTML.localeCompare(bHTML) : bHTML.localeCompare(aHTML);
+                }
+            });
+
+            $(this).data('sort', (sort == 'asc') ? 'desc' : 'asc');
+            $tbody.empty();
+            for (var i = 0; i < arrTr.length; i++) {
+                $tbody.append(arrTr[i]);
+            }
+        });
+    });
+</script>
+</body>
+</html>

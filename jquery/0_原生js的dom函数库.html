@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click me</button>
+<ul id="ul1">
+    <li class="aa">item 1</li>
+    <li class="aa">item 2</li>
+    <li class="aa">item 3</li>
+</ul>
+<script>
+    //1. document.getElementById();
+    //2. document.getElementsByTagName();
+    //3. document.getElementsByClassName(); -> IE9+
+    //4. document.getElementsByName();
+    var oBtn = document.querySelector('#btn');
+    oBtn.onclick = function () {
+        alert('haha');
+    };
+    document.querySelectorAll('.aa');
+</script>
+</body>
+</html>

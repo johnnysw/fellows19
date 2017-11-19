@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click me</button>
+
+<ul id="ul1">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+</ul>
+
+<div id="div1" data-xx="yy">div1</div>
+
+
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+
+    var oDiv1 = document.getElementById('div1');
+    console.log(oDiv1.dataset.xx);
+
+    //var oUl1 = document.getElementById('ul1');
+    /*var aLi = oUl1.getElementsByTagName('li');
+    var fn = function () {
+        alert(this.innerHTML);
+    };
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].onclick = fn;
+    }*/
+    //事件委托
+    /*oUl1.onclick = function (e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if(target.tagName == 'LI'){
+            alert(target.innerHTML);
+        }
+    };*/
+
+
+    $(function () {
+        /*$('#ul1 li').click(function () {
+            alert(this.innerHTML);
+        });*/
+        /*$('#ul1').on('click', 'li', function () {
+            alert(this.innerHTML);
+        });*/
+
+//        $('#div1').data('name', 'lisi');
+
+//        $('#div1').prop('age', 12);
+        //console.log(  $('#div1').data('xx')   );
+    });
+
+    /*window.onload = function () {
+        alert(1);
+    }
+    window.onload = function () {
+        alert(2);
+    }*/
+    /*window.addEventListener('load', function () {
+        alert(1);
+    }, false);
+    window.addEventListener('load', function () {
+        alert(2);
+    }, false);*/
+
+
+</script>
+</body>
+</html>
