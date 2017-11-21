@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*document.cookie = 'name=zhangsan';
+    document.cookie = 'user=lisi';
+
+    var now = new Date();
+    now.setDate(now.getDate() + 10);
+    //    document.cookie = 'age=18;expires=' + now.toUTCString();
+    console.log(document.cookie);*/
+
+    addCookie('school', 'nongda', 30);
+    console.log(getCookie('user'));
+    delCookie('user');
+    console.log(getCookie('user'));
+
+    // expires以天为单位
+    function addCookie(key, val, expires){
+        var str = key + '=' + val;
+        if(expires != undefined){
+            var date = new Date();
+            date.setDate(date.getDate() + expires);
+            str += ';expires=' + date.toUTCString();
+        }
+        document.cookie = str;
+    }
+
+    function getCookie(key) {
+        var arr = document.cookie.split(';');
+        for(var i=0; i<arr.length; i++){
+             // name=zhangsan
+            var temp = arr[i].split('=');
+            if(temp[0].trim() === key){
+                return temp[1];
+            }
+        }
+    }
+
+    function delCookie(key){
+        var date = new Date();
+        date.setDate(date.getDate() - 100);
+        document.cookie = key + '=abc;expires=' + date.toUTCString();
+    }
+
+</script>
+</body>
+</html>
