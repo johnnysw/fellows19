@@ -10,15 +10,23 @@
 </head>
 
 <body>
-    <img src="1.jpg" alt="" id="pic">
+    <img src="http://qr.liantu.com/api.php?text=&el=h&w=140&m=10" alt="" id="pic">
     <script>
         window.onload = function(){
             console.log('2:' + document.getElementById('pic').offsetWidth);
         };
+        document.addEventListener('DOMContentLoaded', function(){
+            console.log('4:' + document.getElementById('pic').offsetWidth);
+        });
         $(function(){
             console.log('1:' + $('#pic').width());
         });
         console.log('3:' + document.getElementById('pic').offsetWidth);
+
+
+        $(window).load(function(){
+            
+        });
     </script>
 </body>
 
