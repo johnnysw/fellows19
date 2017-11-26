@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">btn</button>
+    <script>
+        /* let  const */
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function () {
+            setTimeout(() => {
+                console.log(this);
+            }, 2000);
+        };
+
+        // var aa = function(){
+        //     console.log(123);
+        // }
+        // aa();
+
+        //ES6 箭头函数 =>
+        /* var aa = () => {
+            console.log(this);
+            console.log(123);
+        };
+        aa(); */
+
+
+        /*  var add = function(x, y){
+             console.log(x + y);
+         }; */
+
+        // var add = (x, y) => console.log(x + y);
+
+
+        /*  var x = x => x;
+
+         var x = function(x){
+             return x;
+         }; */
+
+
+         var obj = {
+            name : 'zs',
+            fn1: function(){
+                console.log(this);
+            },
+            fn2: ()=>{
+                console.log(this);
+            },
+            fn3(){
+                console.log(this);
+            }
+         };
+         obj.fn1();
+         obj.fn2();
+         obj.fn3();
+
+
+    </script>
+</body>
+
+</html>
