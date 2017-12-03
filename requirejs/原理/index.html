@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">加载js文件</button>
+
+    <!--<script src="load.js"></script>-->
+    <script>
+        var oBtn = document.getElementById('btn');
+
+        oBtn.onclick = function(){
+            var oScript = document.createElement('script');
+            oScript.src = 'load.js';
+            document.body.appendChild(oScript);
+        };
+
+    </script>
+</body>
+</html>
