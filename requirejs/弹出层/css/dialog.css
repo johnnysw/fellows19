@@ -1,0 +1,38 @@
+.dialog-mask{
+    background: #cccccc;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.dialog-box{
+    width: 500px;
+    height: 400px;
+    background: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*margin-top: -200px;*/
+    /*margin-left: -250px;*/
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.dialog-title{
+    height: 30px;
+    color: #fff;
+    background: #000000;
+    line-height: 30px;
+    padding: 0 10px;
+}
+.dialog-item{
+    float: left;
+}
+.dialog-close{
+    float: right;
+    cursor: pointer;
+}
