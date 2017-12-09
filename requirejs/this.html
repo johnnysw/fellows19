@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(this);//window
+
+        function foo(){
+            console.log(this);//window
+        }
+        foo();
+
+       /*  setInterval(function(){
+            console.log(this);//window
+        }, 1000); */
+
+        var obj = {
+            name: 'lisi',
+            show: function(){
+                console.log(this);//obj
+            }
+        };
+        obj.show();
+
+        function People(name, age){
+            this.name = name;
+            this.age = age;
+            console.log(this);
+        }
+        var p1 = new People('zs', 18);
+        var p2 = new People('lisi', 20);
+
+
+        //call apply bind
+        function fn(a, b){
+            console.log(this);
+            console.log(a, b);
+        }
+        fn.call(obj, 1, 2);
+        fn.apply(obj, [1, 2]);
+        fn.bind(obj, 1, 2)();
+
+
+        //ES6   EcmaScript6
+        //var const let  =>
+
+        /* let a = 5;
+        let a = 6;
+        console.log(a); */
+
+        /* let a = 5;
+        function fn2(){
+            console.log(a);
+            if(false){
+                let a = 6;
+            }
+        }
+        fn2(); */
+
+        /* for(let i=0; i<3; i++){
+
+        }
+
+        console.log(i); */
+
+        
+    </script>
+</body>
+
+</html>
