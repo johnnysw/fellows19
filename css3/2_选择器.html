@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        }
+        #div1:hover{
+            background: #ff0000;
+        }
+        
+
+        /* #ul1 .aa+li{
+            background: #ff0000;
+        } */
+
+        #div2{
+            width: 300px;
+            border: 1px solid;
+        }
+        #div2::first-letter{
+            background: #ff0000;
+            font-size: 30px;
+        }
+        #div2::selection{
+            background: orange;
+        }
+
+        #ipt1:focus{
+            background: #ff0000;
+        }
+        #ipt1{
+            background: #00ff00;
+        }
+
+        /* #ul1 li:not(.aa){
+            background: #ff0000;
+        } */
+        #ul1 div:first-of-type{
+            background: #ff0000;
+        }
+        #ipt2:checked+span{
+            background: #ff0000;
+        }
+        #ipt3::-webkit-input-placeholder {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="div1"></div>
+
+    <ul id="ul1">
+        <li class="aa">001</li>
+        <div>divdivdiv</div>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <div id="div2">
+        阿斯顿发斯蒂芬阿什顿发安抚阿什顿发安抚安抚阿什顿发阿斯顿发斯蒂芬阿什顿发安抚阿什顿发安抚安抚阿什顿发阿斯顿发斯蒂芬阿什顿发安抚阿什顿发安抚安抚阿什顿发阿斯顿发斯蒂芬阿什顿发安抚阿什顿发安抚安抚阿什顿发
+    </div>
+
+    <input type="text" id="ipt1">
+    <input type="checkbox" id="ipt2" checked=true>check
+    <span>选中啦</span>
+    <input type="text" id="ipt3" placeholder="请输入用户名">
+</body>
+</html>
