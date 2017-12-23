@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 600px;
+            height: 500px;
+            background: url(img/2.jpg) no-repeat;
+            border: 30px solid rgba(255, 0, 0, .5);
+            padding: 20px;
+
+            background-origin: border-box; 
+            background-clip: border-box;
+        }
+        #div2{
+            font-size: 100px;
+            font-weight: bolder;
+            background: url(img/2.jpg) no-repeat;
+            color: transparent;
+            -webkit-background-clip: text;
+        }
+        #div3{
+            width: 600px;
+            height: 500px;
+            border: 1px solid;
+            /* background-size: ; */
+            background: url(img/2.jpg) no-repeat center/cover  ;
+        }
+        #div4{
+            width: 600px;
+            height: 500px;
+            border: 1px solid;
+            /* background-repeat: no-repeat;
+            background-image: url(img/2.jpg), url(img/3.jpg), url(img/4.jpg);  
+            background-position: 0 0, 300px 300px, 200px 200px;   */
+
+            background: url(img/2.jpg) no-repeat,url(img/3.jpg) 300px 300px no-repeat,url(img/4.jpg) 200px 200px no-repeat; 
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div</div>
+    <div id="div2">唯创网讯</div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+</body>
+</html>
