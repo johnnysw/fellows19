@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #clock {
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            position: relative;
+        }
+
+        #dial {
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+            border-radius: 50%;
+            position: relative
+        }
+
+        #dial li {
+            width: 2px;
+            height: 6px;
+            background: #000000;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform-origin: 0 100px;
+        }
+
+        #dial li:nth-child(5n + 1) {
+            height: 10px;
+        }
+
+        #clock div {
+            position: absolute;
+            transform-origin: bottom;
+        }
+
+        #hour {
+            width: 6px;
+            height: 30px;
+            background: #000000;
+            left: 99px;
+            top: 70px;
+        }
+
+        #minute {
+            width: 4px;
+            height: 50px;
+            background: #cccccc;
+            left: 100px;
+            top: 50px;
+        }
+
+        #second {
+            width: 2px;
+            height: 70px;
+            background: #ff0000;
+            left: 101px;
+            top: 30px;
+        }
+        /* #dial li:nth-child(1){
+
+        }
+        #dial li:nth-child(2){
+            transform: rotate(6deg);
+        }
+        #dial li:nth-child(3){
+            transform: rotate(12deg);
+        }
+        #dial li:nth-child(4){
+            transform: rotate(18deg);
+        }
+        #dial li:nth-child(5){
+            transform: rotate(24deg);
+        }
+        #dial li:nth-child(6){
+            transform: rotate(30deg);
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="clock">
+        <ul id="dial">
+            <!-- <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li> -->
+        </ul>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+
+    <script>
+        var oDial = document.getElementById('dial');
+        var oHour = document.getElementById('hour');
+        var oMinute = document.getElementById('minute');
+        var oSecond = document.getElementById('second');
+
+        for (var i = 0; i < 60; i++) {
+            oDial.innerHTML += '<li style="transform:rotate(' + i * 6 + 'deg);"></li>';
+        }
+
+        run();
+
+        setInterval(function () {
+            run();
+        }, 1000);
+        function run(){
+            var now = new Date();
+            var secd = now.getSeconds();
+            var min = now.getMinutes() + secd / 60;
+            var hour = now.getHours() + min / 60;
+
+            oHour.style.transform = 'rotate(' + hour * 30 + 'deg)';
+            oMinute.style.transform = 'rotate(' + min * 6 + 'deg)';
+            oSecond.style.transform = 'rotate(' + secd * 6 + 'deg)';
+        }
+    </script>
+</body>
+
+</html>
