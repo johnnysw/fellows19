@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            font-size: 16px;
+
+            /* transition: all 2s linear 2s; */
+
+            transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: linear;
+            transition-delay: 2s;
+        }
+        #div1:hover{
+            width: 400px;
+            background: #0f0;
+            font-size: 30px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">变化</button>
+    <div id="div1">唯创网讯</div>
+    <div id="div2"></div>
+
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function(){
+            oDiv1.style.width = '500px';
+        };
+    </script>
+</body>
+</html>
