@@ -29,6 +29,7 @@
             top: 0;
             left: 0;
             cursor: pointer;
+            
         }
     
     </style>
@@ -42,10 +43,15 @@
         var oDiv1 = document.getElementById('div1');
         var oDiv2 = document.getElementById('div2');
         
+        var i = 1;
         oDiv1.onclick = function(){
-            oDiv1.style.transform = 'rotateY(180deg)';
+            console.log('div1');
+            oDiv1.style.transform = 'rotateY('+ i * 180 +'deg)';
+            i++;
         };
-       
+        oDiv2.onclick = function(){
+            console.log('div2');
+        };
     </script>
 </body>
 </html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        input[type="text"][name="username"]{
+            background: rgba(255, 0, 0, .5);
+        }
+        #div1{
+            width: 100px;
+            border: 1px solid;
+
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            margin-top: 100px;
+            position: relative;
+            
+
+            /* 
+            border: 1px solid #0f0;
+            width: 400px;
+            height: 400px;
+            transform: scale(0.5);
+            transform-origin: 0 0; */
+        }
+
+        #div2::after{
+            content: '';
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5) translate(-50%, -50%);
+            border: 1px solid #0f0;
+            position: absolute;
+        }
+
+        #div3{
+            width: 200px;
+            height: 200px;
+            background-image: linear-gradient(180deg, #fff 0%, #f00 100%);
+        }
+
+        #div4{
+            width: 200px;
+            height: 200px;
+            background: #cccccc;
+            margin-top: 100px;
+            position: relative;
+        }
+        #div4::after{
+            content: '';
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            top: -1px;
+            background-image: linear-gradient(180deg, transparent 50%,#f00 50%);
+        }
+
+        #div5{
+            width: 100%;
+            height: 20px;
+            border: 1px solid;
+        }
+        #div6{
+            width: 0px;
+            height: 100%;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="username" placeholder="请输入用户名">
+    <div id="div1">阿斯顿发顺丰阿斯顿发顺丰按时发顺丰按时发顺丰阿什顿发按时</div>
+
+    <div id="div2"></div>
+
+    <div id="div3"></div>
+
+    <div id="div4"></div>
+
+    <button id="start">开始</button>
+    <div id="div5">
+        <div id="div6">0%</div>
+    </div>
+
+    <script>
+        var oStart = document.getElementById('start');
+        var oDiv5 = document.getElementById('div5');
+        var oDiv6 = document.getElementById('div6');
+        var w = oDiv5.offsetWidth;
+
+        oStart.onclick = function(){
+            var timer = setInterval(function(){
+                if(oDiv6.offsetWidth == w){
+                    clearInterval(timer);
+                }else{
+                    oDiv6.style.width = oDiv6.offsetWidth + w / 100 + 'px';
+                    oDiv6.innerHTML = oDiv6.offsetWidth / w * 100 + '%';
+                }
+            }, 10);// >16.67
+        };
+    </script>
+</body>
+</html>
