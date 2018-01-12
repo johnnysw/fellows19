@@ -121,23 +121,23 @@
             for (let i = 0; i < NUM; i++) {
                 aImg[i].style.transform = 'rotate(' + Math.floor(Math.random() * 40 - 20) + 'deg)';
                 aImg[i].style.transitionDelay = (NUM - i) * 100 + 'ms'; // 设置延迟时间
-               le.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
-            } aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
-                aImg[i].sty
+                aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
+                aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
+            }
         }
 
         // 计算大图片的间隙
         let bigColGap = (oContainer.offsetWidth - BIG_WIDTH) / 2,
-        bigRowGap = (oContainer.offsetHeight - BIG_HEIGHT) / 2;
+            bigRowGap = (oContainer.offsetHeight - BIG_HEIGHT) / 2;
 
         // 标志位，true表示散开要合并，false表示合并要散开
-        let bFlag = true; 
+        let bFlag = true;
         // 利用事件委托， 给24个div绑定事件
         oContainer.onclick = function (e) {
             // e.target => oContainer/div/span
             if (e.currentTarget != e.target) {
                 if (bFlag) {
-                    for(let i=0; i<NUM; i++){
+                    for (let i = 0; i < NUM; i++) {
                         aImg[i].style.transitionDelay = '0ms';
                         aImg[i].style.borderWidth = '1px';
                         aImg[i].style.top = bigRowGap + THUMB_HEIGHT * aImg[i].pos.y + 'px';
@@ -147,13 +147,14 @@
                         let oSpan = aImg[i].getElementsByTagName('span')[0];
                         oSpan.style.opacity = 1;
                         let imgUrl;
-                        if(e.target.tagName == 'DIV'){
+                        if (e.target.tagName == 'DIV') {
                             imgUrl = e.target.index;
-                        }else { // span
+                        } else { // span
                             imgUrl = e.target.parentNode.index;
                         }
-                        oSpan.style.backgroundImage = 'url(img/'+ imgUrl +'.jpg)';
-                        oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.x + 'px '+ (-THUMB_HEIGHT * aImg[i].pos.y) +'px';
+                        oSpan.style.backgroundImage = 'url(img/' + imgUrl + '.jpg)';
+                        oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.x + 'px ' + (-THUMB_HEIGHT *
+                            aImg[i].pos.y) + 'px';
                     }
                 } else {
                     console.log('要散开');
