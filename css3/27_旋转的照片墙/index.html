@@ -10,6 +10,7 @@
         body {
             margin: 0;
             padding: 0;
+            position: relative;
         }
 
         li {
@@ -48,12 +49,37 @@
             display: block;
             transition: all 1s ease;
         }
+
+        #prev,
+        #next {
+            width: 60px;
+            height: 60px;
+            background: #ffffff no-repeat center;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #prev {
+            background-image: url(img/prev.png);
+            left: 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        #next {
+            background-image: url(img/next.png);
+            right: 0;
+            border-radius: 8px 0 0 8px;
+        }
     </style>
 </head>
 
 <body>
     <div id="container"></div>
-
+    <div id="prev"></div>
+    <div id="next"></div>
 
     <script>
         const ROW = 4,
@@ -64,8 +90,13 @@
             THUMB_WIDTH = 125,
             THUMB_HEIGHT = 125;
         let oContainer = document.getElementById('container');
+        let oPrev = document.getElementById('prev');
+        let oNext = document.getElementById('next');
+
         let count = 0; // 计数器，表示加载成功的图片的数量
         let aImg = null;
+        let colGap, rowGap;
+        let nowIndex = 0; // 表示当前显示的大图的名称，取值1~24
 
         for (let i = 0; i < NUM; i++) {
             /* let oImg = document.createElement('img');
@@ -114,8 +145,8 @@
 
             // 计算图片间隙
             aImg = oContainer.getElementsByTagName('div'); // 24个
-            let colGap = (oContainer.offsetWidth - aImg[0].offsetWidth * COL) / (COL + 1);
-            let rowGap = (oContainer.offsetHeight - aImg[0].offsetHeight * ROW) / (ROW + 1);
+            colGap = (oContainer.offsetWidth - aImg[0].offsetWidth * COL) / (COL + 1);
+            rowGap = (oContainer.offsetHeight - aImg[0].offsetHeight * ROW) / (ROW + 1);
 
             // 计算每个小图片的位置
             for (let i = 0; i < NUM; i++) {
@@ -155,13 +186,51 @@
                         oSpan.style.backgroundImage = 'url(img/' + imgUrl + '.jpg)';
                         oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.x + 'px ' + (-THUMB_HEIGHT *
                             aImg[i].pos.y) + 'px';
+                            oSpan.style.transitionDelay = '0ms';
+                        nowIndex = imgUrl;
                     }
+                    oPrev.style.display = oNext.style.display = 'block';
                 } else {
-                    console.log('要散开');
+                    for (let i = 0; i < NUM; i++) {
+                        aImg[i].style.transform = 'rotate(' + Math.floor(Math.random() * 40 - 20) + 'deg)';
+                        aImg[i].style.transitionDelay = '0ms'; // 设置延迟时间
+                        aImg[i].style.top = (rowGap + aImg[0].offsetHeight) * aImg[i].pos.y + rowGap + 'px';
+                        aImg[i].style.left = (colGap + aImg[0].offsetWidth) * aImg[i].pos.x + colGap + 'px';
+                        let oSpan = aImg[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = 0;
+                        oSpan.style.transitionDelay = '0ms';
+                    }
+                    oPrev.style.display = oNext.style.display = 'none';
                 }
+                bFlag = !bFlag;
             }
         };
-        
+
+        oPrev.onclick = oNext.onclick = function () {
+            if (this === oPrev) {
+                nowIndex--;
+                if (nowIndex < 1) {
+                    nowIndex = NUM;
+                }
+            } else {
+                nowIndex++;
+                if (nowIndex > NUM) {
+                    nowIndex = 1;
+                }
+            }
+            let arr = []; // 0~23
+            for (let i = 0; i < NUM; i++) {
+                arr.push(i);
+            }
+            arr.sort(function () {
+                return Math.random() - 0.5;
+            });
+            for (let i = 0; i < arr.length; i++) {
+                let oSpan = aImg[arr[i]].getElementsByTagName('span')[0];
+                oSpan.style.transitionDelay = i * 50 + 'ms';
+                oSpan.style.backgroundImage = 'url(img/' + nowIndex + '.jpg)';
+            }
+        };
     </script>
 </body>
 
