@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #descripiton{
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="xx.php" method="post">
+        <p>
+            <label>用户名 <input type="text" name="username" autocomplete="off" autofocus placeholder="请输入用户名"></label>
+        </p>
+        <p>
+            <label>密码 <input type="password"> </label>
+        </p>
+        <p>
+            性别
+            <input type="radio" name="sex">男
+            <input type="radio" name="sex">女
+        </p>
+        <p>
+            爱好
+            <input type="checkbox" name="hobby">篮球
+            <input type="checkbox" name="hobby">足球
+            <input type="checkbox" name="hobby">排球
+        </p>
+        <p>
+            自我介绍
+            <textarea name="" id="descripiton" cols="30" rows="10"></textarea>
+        </p>
+        
+
+
+        <p>
+            邮箱
+            <input type="email">
+        </p>
+        <p>
+            url
+            <input type="url">
+        </p>
+
+        <p>
+            number
+            <input type="number" max="10" min="1" step="2">
+        </p>
+        <p>
+                range
+                <input type="range" max="10" min="1" step="1">
+        </p>
+        <p>
+                date
+                <input type="date">
+                <input type="time">
+        </p>
+        <p>
+                search
+                <input type="search">
+        </p>
+        <p>
+                color
+                <input type="color">
+        </p>
+
+
+        <input type="submit" value="注册">
+        <input type="reset" value="重置">
+    </form>
+
+    <input type="text">
+</body>
+</html>
+
+
+<!-- 
+    <?php
+        $username = $_POST['username'];
+
+    ?> 
+-->
