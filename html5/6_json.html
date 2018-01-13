@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // json
+        /* var obj = {
+            a: 'Hello',
+            b: 'World'
+        };
+        var json = '{"a": "Hello", "b": "World"}'; // json
+
+        var str = JSON.stringify(obj); //  object => string
+        console.log(str);
+
+        var obj2 = JSON.parse(json); // string => object
+        console.log(obj2);
+
+        var userinfo = {
+            username: 'zhangsan',
+            age: 18,
+            school: 'nongda'
+        };
+        var uStr = JSON.stringify(userinfo);
+        console.log(uStr); */
+
+        //  json2.js  解决兼容性问题
+
+
+        var a = 5;
+        var b = a;
+        a = 6;
+        console.log(b); //5
+
+
+        var obj1 = {
+            name: 'zhangsan',
+            age: 18,
+            dad: {
+                name: 'zhanger',
+                age: 45
+            }
+        };
+        /* var obj2 = obj1; // 浅拷贝
+        obj1.name = 'lisi';
+        console.log(obj2); */
+
+        // 深拷贝、深克隆
+        /* var obj3 = {}; // new Object()
+        obj3.name = obj1.name;
+        obj3.age = obj1.age;
+
+        obj1.name = 'lisi';
+        console.log(obj3); */
+
+        var obj4 = clone(obj1);
+        // obj1.name = 'lisi';
+        obj1.dad.name = 'zhangda';
+        console.log(obj1);
+        console.log(obj4);
+
+        // 深拷贝、深克隆
+        function clone(obj){
+            var newObj = {};
+            for(var p in obj){
+                if(typeof(obj[p]) == 'object'){
+                    newObj[p] = clone(obj[p]); // 递归
+                }else{
+                    newObj[p] = obj[p];
+                }
+            }
+            return newObj;
+        }
+
+        var obj1Str = JSON.stringify(obj1);
+        var obj5 = JSON.parse(obj1Str);
+        obj1.dad.name = 'zhangxx';
+        console.log(obj5);
+
+
+        // eval("while(true){alert(123)}");
+
+
+    </script>
+</body>
+
+</html>
+
+<!-- 
+json:
+{"username":"zhangsan","age":18,"school":"nongda"}
+
+xml:
+<userinfo>
+    <username>zhangsan</username>
+    <age>18</age>
+    <school>nongda</school>
+</userinfo> 
+
+-->

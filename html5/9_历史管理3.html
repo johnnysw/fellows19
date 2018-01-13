@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        #nav {
+            height: 30px;
+        }
+
+        #nav li {
+            width: 100px;
+            height: 30px;
+            float: left;
+            list-style: none;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #nav a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: #cccccc;
+        }
+
+        div {
+            height: 400px;
+        }
+
+        #div1 {
+            background: #ff0000;
+            margin-top: 300px;
+        }
+
+        #div2 {
+            background: #00ff00;
+        }
+
+        #div3 {
+            background: #ffff00;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="nav">
+        <li>
+            <a href="#div1">Link One</a>
+        </li>
+        <li>
+            <a href="#div2">Link Two</a>
+        </li>
+        <li>
+            <a href="#div3">Link Three</a>
+        </li>
+    </ul>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#nav a').on('click', function () {
+                var id = $(this).attr('href');
+                $('body, html').animate({
+                    scrollTop: $(id).offset().top
+                }, 500);
+
+                history.pushState($(id).offset().top, '');
+                return false; // 阻止默认行为
+            });
+        });
+
+        window.onpopstate = function (e) {
+            $('body, html').animate({
+                scrollTop: e.state
+            }, 500);
+        };
+
+
+        // document.body.scrollTop || document.documentElement.scrollTop
+    </script>
+</body>
+
+</html>
