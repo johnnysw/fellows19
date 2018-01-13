@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" >div1</div>
+    <div id="div2" data-xx-yy="aa" data-zz="bb" cc="123"></div>
+<!-- <script src="require.js" data-main="index"></script> -->
+    <script src="jquery-3.2.1.min.js"></script>
+
+    <script>
+        let oDiv1 = document.querySelector('#div1');
+        oDiv1.xx = '123';
+        console.log(oDiv1.xx);
+
+        oDiv1.setAttribute('yy', '456');
+        console.log(oDiv1.getAttribute('yy'));
+    
+        $(function(){
+            let $div2 = $('#div2');
+            console.log($div2.data('xx-yy'));
+
+
+        });
+
+        let oDiv2 = document.querySelector('#div2');
+        console.log(oDiv2.dataset);//DOMStringMap
+        console.log(oDiv2.dataset.xxYy);
+
+    </script>
+</body>
+</html>

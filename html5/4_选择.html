@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <div>div2</div>
+        <div>div3</div>
+    </div>
+
+    <div class="aa bb cc ff" id="div4">div4</div>
+
+    <script>
+       /*  document.getElementById('div1');
+        document.getElementsByTagName('div');
+    
+        // 兼容性
+        document.getElementsByClassName('aa');
+        document.getElementsByName('username'); */
+
+        var oDiv1 = document.querySelector('#div1')
+        console.log(oDiv1);
+
+        var aDiv1 = document.querySelectorAll('div');// NodeList
+        console.log(aDiv1);
+        
+        var aDiv2 = document.getElementsByTagName('div');// HTMLCollection
+        console.log(aDiv2);
+
+        console.log(oDiv1.children);// HTMLCollection 只包含元素节点
+        console.log(oDiv1.childNodes);// NodeList 包含文本节点和元素节点
+
+        // 伪数组  类数组
+        
+        
+
+
+        let oDiv4 = document.querySelector('#div4');
+        // console.log(typeof oDiv4.className);// string
+        // oDiv4.className += ' dd';
+        console.log(oDiv4.classList);// DOMTokenList
+        oDiv4.classList.add('ee'); // jq .addClass()
+        oDiv4.classList.remove('bb');
+        oDiv4.classList.toggle('ff');
+
+    </script>
+
+</body>
+</html>
