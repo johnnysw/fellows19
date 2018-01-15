@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cvs {
+            background: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="cvs" width="400" height="400" ></canvas>
+    <script>
+        var oCvs = document.querySelector('#cvs');
+        var context = oCvs.getContext('2d');
+        context.beginPath();
+        context.moveTo(100, 100);
+        context.lineTo(300, 300);
+        context.lineWidth = 10;
+        // 设置线的颜色 
+        context.strokeStyle = "#ff0000";
+        context.stroke();
+
+
+        context.beginPath();
+        context.moveTo(120, 150);
+        context.lineTo(200, 250);
+        context.lineWidth = 20;
+        context.strokeStyle = "#00ff00";
+        context.stroke();
+
+
+        var x = oCvs.width / 2;
+        var y = oCvs.height / 2;
+        var radius = 75;
+        var startAngle = 0.5 * Math.PI;
+        var endAngle = 1 * Math.PI;
+        var counterClockwise = false;
+        context.beginPath();
+        context.arc(x, y, radius, startAngle, endAngle,
+            counterClockwise);
+        context.lineWidth = 15;
+        context.strokeStyle = "#fff";
+        context.stroke();
+
+        
+
+        oCvs.onclick = function(){
+            alert(123);
+        };
+    </script>
+</body>
+
+</html>
