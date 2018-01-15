@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper{
+    width: 1003px;
+    margin: 0 auto;
+    height: 100%;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}

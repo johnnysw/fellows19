@@ -1,0 +1,56 @@
+#nav {
+    height: 120px;
+}
+
+#nav .wrapper {
+    background: url(../img/logo.png) no-repeat left center;
+    position: relative;
+}
+
+#list {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 352px;
+}
+
+#list li {
+    float: left;
+    height: 14px;
+    line-height: 14px;
+    font-size: 12px;
+    color: #626262;
+    font-family: PT Sans Regular;
+}
+
+#list li span {
+    width: 1px;
+    height: 14px;
+    float: right;
+    margin: 0 25px;
+    background: url(../img/sprite.png) no-repeat;
+}
+
+#search-ipt{
+    width: 130px;
+    height: 30px;
+    background-color: #f1f3f6;
+    outline: none;
+    border: 0;
+    text-indent: 10px;
+}
+#search{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+#search-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -6px;
+    width: 10px;
+    height: 12px;
+    background: url(../img/sprite.png) no-repeat -2px 0;
+}
