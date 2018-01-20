@@ -23,29 +23,22 @@
             }, 'json');
         }, 'json'); */
 
-        let p1 = new Promise(function (resolve, reject) {
-            $.get('a.json', {}, function (res) {
-                console.log(res);
-                if (res.a) {
+        function getPromise(url) {
+            return new Promise(function (resolve, reject) {
+                $.get(url, {}, function (res) {
                     resolve(res);
-                } else {
-                    reject();
-                }
-            });
-        }).then(function (resa) {
-            new Promise(function (resolve, reject) {
-                $.get('b.json', {}, function (resb) {
-                    console.log(resb);
-                    resolve();
                 });
             });
+        }
 
-        }, function () {
-            console.log('失败');
-        }).then(function () {
-            $.get('c.json', {}, function (resb) {
-                console.log(resb);
-            });
+        getPromise('a.json').then(function(resa){
+            console.log(resa);
+            return getPromise('b.json');
+        }).then(function(resb){
+            console.log(resb);
+            return getPromise('c.json');
+        }).then(function(resc){
+            console.log(resc);
         });
 
         /* let p1 = new Promise(function (resolve, reject) {
@@ -80,6 +73,7 @@
         }, () => {
             console.log('fail');
         }); */
+
     </script>
 </body>
 
