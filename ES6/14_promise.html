@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery-3.2.1.js"></script>
+
+    <script>
+        // callback hell
+        /* $.get('a.json', {}, function (res) {
+            console.log(res);
+            $.get('b.json', {}, function (res) {
+                console.log(res);
+                $.get('c.json', {}, function (res) {
+                    console.log(res);
+                }, 'json');
+            }, 'json');
+        }, 'json'); */
+
+        let p1 = new Promise(function (resolve, reject) {
+            $.get('a.json', {}, function (res) {
+                console.log(res);
+                if (res.a) {
+                    resolve(res);
+                } else {
+                    reject();
+                }
+            });
+        }).then(function (resa) {
+            new Promise(function (resolve, reject) {
+                $.get('b.json', {}, function (resb) {
+                    console.log(resb);
+                    resolve();
+                });
+            });
+
+        }, function () {
+            console.log('失败');
+        }).then(function () {
+            $.get('c.json', {}, function (resb) {
+                console.log(resb);
+            });
+        });
+
+        /* let p1 = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                console.log(1);
+                resolve();
+            }, 1000);
+        });
+        let p2 = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                console.log(2);
+                resolve();
+            }, 2000);
+        });
+        let p3 = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                console.log(3);
+                resolve();
+            }, 3000);
+        }); */
+
+        /*         
+        Promise.all([p1, p2, p3]).then(()=>{
+            console.log('success');
+        }, ()=>{
+            console.log('fail');
+        }); 
+        */
+
+        /* Promise.race([p1, p2, p3]).then(() => {
+            console.log('success');
+        }, () => {
+            console.log('fail');
+        }); */
+    </script>
+</body>
+
+</html>

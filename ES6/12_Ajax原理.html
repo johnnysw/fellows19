@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hhhh</h1>
+    <a href="">baidu</a>
+
+    <ul id="music-list"></ul>
+
+    <script>
+        let oUl = document.querySelector('#music-list');
+
+        // 1、创建 XMLHttpRequest 对象
+        var xmlhttp;
+        if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else { // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // 2、向服务器发送请求
+        xmlhttp.open("GET", "musicdata.json?username=zhangsan&age=18", true);
+        xmlhttp.send();
+
+        // 3、服务器响应
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                // 业务逻辑代码
+                let json = JSON.parse(xmlhttp.responseText);
+                let list = json.musicData;
+                console.log(list);
+                for(let item of list){
+                    oUl.innerHTML += `<li>${item.title}</li>`;
+                }
+            }
+        }
+
+
+        /* 
+        readyState：
+        0: 请求未初始化
+        1: 服务器连接已建立
+        2: 请求已接收
+        3: 请求处理中
+        4: 请求已完成，且响应已就绪
+        
+         */
+    </script>
+</body>
+
+</html>

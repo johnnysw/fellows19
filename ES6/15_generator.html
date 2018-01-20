@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./jquery-3.2.1.js"></script>
+
+    <script>
+        // generator函数
+        /* function* helloWorldGenerator() {
+            yield 'hello';
+
+            console.log(123);
+            yield 'world';
+
+            return 'ending';
+        }
+
+        var hw = helloWorldGenerator();
+        console.log(hw.next());
+         console.log(hw.next()); */
+        /*console.log(hw.next());
+         */
+        /* for(let item of hw){
+            console.log(item);
+        } */
+
+        /* function* foo(x) {
+            var y = 2 * (yield(x + 1));
+            console.log(y);
+            var z = yield(y / 3);
+            return (x + y + z);
+        } */
+
+        /* var a = foo(5); */
+        /* a.next() // Object{value:6, done:false} */
+        /* a.next() // Object{value:NaN, done:false} */
+        /* a.next() // Object{value:NaN, done:true} */
+        /* var b = foo(5);
+        b.next() // { value:6, done:false }
+        b.next(12) // { value:8, done:false }
+        b.next(13) // { value:42, done:true } */
+
+        function request(url) {
+            $.get(url, {}, function (res) {
+                ma.next(res);
+            }, 'json')
+        }
+
+        function* myAjax() {
+            console.log(yield request('a.json'));
+            console.log(yield request('b.json'));
+            console.log(yield request('c.json'));
+        }
+        let ma = myAjax();
+        ma.next();
+    </script>
+</body>
+
+</html>

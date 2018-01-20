@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        $(function(){
+            $.get('musicdata.json', {
+               /*  username: 'zs',
+                age: 18 */
+            }, function(res){
+                console.log(res);
+                
+                // 业务逻辑代码
+                /* if(res.flag == 1){
+                    成功
+                }else{
+                    失败
+                } */
+
+            }, 'json');
+
+
+
+
+
+        });
+    
+    // vue  axios 
+    // react fetch
+    
+    </script>
+</body>
+</html>
