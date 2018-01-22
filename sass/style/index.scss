@@ -1,0 +1,66 @@
+/* 这是一个多行注释 */
+// 这是一个单行注释
+/*! 这是一个强制注释 */
+
+$color: #f00;
+$w: 300px;
+#div1{
+    background: $color;
+    color: $color;
+    .aa{
+        width: $w;
+        .bb{
+            height: $w;
+        }
+        &:hover{
+            background: #00ff00;
+        }
+        &-test{
+            width: 200px;
+            &-test2{
+                height: 200px;
+            }
+        }
+    }
+    .cc{
+        width: 200px;
+    }
+}
+#div2{
+    background: {
+        color: $color;
+        image: url(xx.jpg)
+    }
+    border: {
+        bottom: {
+            color: $color;
+        }
+    }
+}
+
+$width: 200px;
+$wd: width;
+#div3{
+    #{$wd}: $width;
+}
+
+
+@mixin xx($w:200px, $h:200px){
+    width: $w;
+    height: $h;
+    background: #ff0000;
+}
+#div4{
+    @include xx($h:300px, $w:200px);
+    font-size: 14px;
+}
+#div5{
+    @include xx();
+    .aa{
+        width: 200px;
+    }
+}
+#div6{
+    @extend #div5;
+    font-size: 14px;
+}
