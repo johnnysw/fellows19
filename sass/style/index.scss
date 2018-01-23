@@ -26,6 +26,7 @@ $w: 300px;
         width: 200px;
     }
 }
+/*! div2强制注释 */
 #div2{
     background: {
         color: $color;
@@ -34,6 +35,8 @@ $w: 300px;
     border: {
         bottom: {
             color: $color;
+            width: 1px;
+            style: solid;
         }
     }
 }
@@ -67,3 +70,84 @@ $wd: width;
 #div7{
     width: 200px;
 }
+
+@import 'base/base';
+
+$img: 'xx.jpg';
+#div8{
+    // width: abs(-200px / 100);
+    width: percentage(30/100);
+    background-image: url('img/' + $img);
+}
+
+#div9{
+    color: transparentize(rgba(255, 0, 0, .5), .2);
+}
+
+$m: (light: #fff, dark: #000);
+#div10{
+    color: map-get($m, dark);
+}
+
+$hw: 'hello world';
+/* $hw变量表示#{$hw} */
+
+$div: 'aa';
+##{$div}-#{$div}{
+    width: 200px;
+}
+
+
+@function foo($bg){
+    @if($bg == 1){
+        @return #f00;
+    }@else if($bg == 2){
+        @return #0f0
+    } @else {
+        @return #ccc;
+    }
+}
+
+#div11{
+    background: foo(20);
+}
+
+$column: 12;
+@for $i from 1 through 12{
+    .col-lg-#{$i}{
+        width: percentage($i/100);
+    }
+}
+
+$icons: success fail error ok remove;
+
+@each $icon in $icons{
+    .icon-#{$icon}{
+        background-image: url($icon + '.jpg');
+    }
+}
+
+$i: 5;
+@while $i > 0 {
+    .col-md-#{$i}{
+        width: percentage($i / 100);
+    }
+    $i: $i - 1;
+}
+
+$m: (light: #fff, dark: #000);
+@function get-color($key){
+    @if not(map-has-key($m, $key)){
+        @error '你传入的key不存在';
+        @return #ccc;
+    }@else{
+        @return map-get($m, $key);
+    }
+}
+
+#div13{
+    color: get-color(light);
+}
+
+
+
