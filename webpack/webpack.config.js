@@ -1,14 +1,45 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyjsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: {
         index: './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: 'http://127.0.0.1:8081/'
     },
-    module: {},
+    module: {
+        rules: [{
+            test: /\.css$/,
+            // use: ['style-loader', 'css-loader']
+            // use: [
+            //     {
+            //         loader: 'style-loader'
+            //     },{
+            //         loader: 'css-loader'
+            //     }
+            // ]
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader"
+            })
+        }, {
+            test: /\.(jpg|png|gif)$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 500,
+                    outputPath: 'images/'
+                }
+            }]
+        }, {
+            test: /\.(html|htm)$/i,
+            loader: 'html-withimg-loader'
+        }]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             minify: {
@@ -16,7 +47,9 @@ module.exports = {
             },
             hash: true,
             template: './src/index.html'
-        })
+        }),
+        new ExtractTextPlugin('css/index.css'),
+        new UglifyjsPlugin()
     ],
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),

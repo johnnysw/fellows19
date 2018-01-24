@@ -1,0 +1,11 @@
+#div2 {
+    width: 200px;
+    height: 200px;
+    background: #ff0000;
+}
+
+#div3{
+    width: 400px;
+    height: 400px;
+    background: url(../images/logo2.jpg) no-repeat;
+}
