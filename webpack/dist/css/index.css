@@ -1,11 +1,30 @@
 #div2 {
-    width: 200px;
-    height: 200px;
-    background: #ff0000;
+  width: 200px;
+  height: 200px;
+  background: #ff0000;
 }
 
-#div3{
-    width: 400px;
-    height: 400px;
-    background: url(http://127.0.0.1:8081/images/4dfeaf260e039a62d0d0554e077bc132.jpg) no-repeat;
+#div3 {
+  width: 400px;
+  height: 400px;
+  background: url(http://127.0.0.1:8081/images/4dfeaf260e039a62d0d0554e077bc132.jpg) no-repeat;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.aa {
+  background: #ff0000;
+}
+
+#div6 {
+  width: 200px;
+}
+
+#div5 {
+  width: 200px;
+  height: 200px;
+  background: #F00;
 }

@@ -4,8 +4,26 @@
     background: #ff0000;
 }
 
-#div3{
+#div3 {
     width: 400px;
     height: 400px;
     background: url(../images/logo2.jpg) no-repeat;
+    transform: rotate(30deg);
+    display: flex;
+}
+
+.aa{
+    background: #ff0000;
+}
+
+#div6{
+    width: 200px;
+}
+
+#abc{
+    width: 200px;
+}
+
+#container{
+    width: 200px;
 }
