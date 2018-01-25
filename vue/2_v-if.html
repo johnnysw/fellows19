@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <!-- isLogin=1登录的   isLogin=0 未登录的 -->
+        <span v-if="isLogin == 1 ?true:false ">{{msg}}</span>
+        <span v-else>请登录</span>
+
+        <br>
+
+        <span v-if="letter == 'A'">A</span>
+        <span v-else-if="letter == 'B'">B</span>
+        <span v-else>C</span>
+
+        <br>
+
+        <span v-show="isShow">SHOW</span>
+        <span v-show="!isShow">NOT SHOW</span>
+
+
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                isLogin: 1,
+                msg: '欢迎：唯创网讯',
+                letter: 'A',
+                isShow: true
+            }
+        });
+    
+    </script>
+</body>
+</html>
