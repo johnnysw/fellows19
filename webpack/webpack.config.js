@@ -4,10 +4,11 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyjsPlugin = require('uglifyjs-webpack-plugin');
 const glob = require('glob');
 const PurifyCSSPlugin = require('purifycss-webpack');
+const webpack = require('webpack');
+const entry = require('./webpack_config/entry_webpack.js');
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
-    entry: {
-        index: './src/index.js'
-    },
+    entry: entry,
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
@@ -28,7 +29,9 @@ module.exports = {
                 fallback: "style-loader",
                 use: [{
                     loader: "css-loader",
-                    options: {importLoaders: 1}
+                    options: {
+                        importLoaders: 1
+                    }
                 }, 'postcss-loader']
             })
         }, {
@@ -53,12 +56,12 @@ module.exports = {
         }, {
             test: /\.(js|jsx)$/,
             use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env', 'react']
-                    }
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env', 'react']
                 }
-            
+            }
+
         }]
     },
     plugins: [
@@ -73,7 +76,20 @@ module.exports = {
         new UglifyjsPlugin(),
         new PurifyCSSPlugin({
             paths: glob.sync(path.join(__dirname, 'src/*.html')),
-          })
+        }),
+        new webpack.BannerPlugin('唯创所有'),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['jquery', 'vue'],
+            filename: 'assets/js/[name].js',
+            minChunks: 2
+        }),
+        new CopyPlugin([{
+            from: __dirname + '/src/public',
+            to: './public'
+        }])
     ],
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
