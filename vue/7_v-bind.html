@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-bind 简写成 :  -->
+        <img :src="imgSrc" :alt="tip">
+
+        <div id="div1" :class="clsName"></div>
+
+        <div :class="{aa:isAa}"></div>
+
+        <div :style="styleObj"></div>
+
+        <div :text-content.prop="text">div</div>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'https://cn.vuejs.org/images/logo.png',
+                tip: '图片加载失败啦',
+                clsName: 'aa',
+                isAa: true,
+                styleObj: {
+                    width: '200px',
+                    height: '200px',
+                    'background-color': '#0f0'
+                },
+                text: 'aaa'
+            }
+        });
+    </script>
+</body>
+
+</html>
