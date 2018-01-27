@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-weichuang="'green'">div</div>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        /* Vue.directive('weichuang', function(el, binding, vnode){
+                    // console.log(el);
+                    // console.log(binding);
+                    // console.log(vnode);
+                    el.style.backgroundColor = binding.value;
+                }); */
+
+        Vue.directive('weichuang', {
+            bind(el, binding, vnode) {
+                console.log('bind');
+                el.style.backgroundColor = binding.value;
+            },
+            inserted() {
+                console.log('inserted');
+            },
+            update() {
+                console.log('update');
+            },
+            componentUpdated() {
+                console.log('conponentUpdated');
+            },
+            unbind() {
+                console.log('unbind');
+            }
+
+        });
+
+        new Vue({
+            el: '#app',
+            
+        });
+    </script>
+</body>
+
+</html>

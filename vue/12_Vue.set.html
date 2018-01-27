@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="change">change</button>
+        <div v-for="item in arr">{{item}}</div>
+        <div v-for="o in obj">{{ o }} </div>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                // 根级属性
+                arr: ['a', 'b', 'c', 'd'],
+                obj: {
+                    name: 'lisi'
+                }
+            },
+            methods: {
+                change() {
+                    // this.arr[2] = 'e';
+                    // this.obj.age = 28;
+
+                    // Object.assign(this.obj, {age: 20});
+                    
+
+                    Vue.set(this.arr, 2, 'e');
+                    Vue.set(this.obj, 'age', 20);
+                }
+            }
+        });
+
+        /*  let arr = ['a', 'b', 'c', 'd'];
+         console.log(arr);
+         arr[2] = 'e';
+         console.log(arr); */
+
+        /* let obj = {
+            name: 'lisi'
+        };
+        obj.age = 28;
+        console.log(obj); */
+    </script>
+</body>
+
+</html>

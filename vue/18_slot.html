@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <comp>
+            <span slot="username">张三</span>
+            <span slot="age">20</span>
+        </comp>
+
+        <comp>
+            <h4 slot="username">李四</h4>
+        </comp>
+
+
+    </div>
+
+    <template id="temp">
+        <div>
+            <p>
+                <!-- 具名插槽 -->
+                用户名: <slot name="username">默认姓名</slot>
+            </p>
+            <p>
+                年龄：<slot name="age">默认年龄</slot>
+            </p>
+        </div>
+    </template>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                comp: {
+                    template: '#temp'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

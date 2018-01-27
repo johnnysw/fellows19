@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <comp>
+            <span>张三</span>
+        </comp>
+
+        <comp>
+        </comp>
+
+
+    </div>
+
+    <template id="temp">
+        <div>
+            <p>
+                用户名: <slot>默认姓名</slot>
+            </p>
+        </div>
+    </template>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                comp: {
+                    template: '#temp'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
