@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['a', 'b', 'c', 'd'];
+        // arr.splice(2, 0, 'd');
+        // arr.splice(2, 1, 'd');
+        // arr.splice(2, 2, 'e');
+        // arr.splice(2, 1);
+        /* arr.splice(2);
+        
+        console.log(arr); */
+
+        let newArr = arr.forEach((val, key)=>{
+            if(val == 'c'){
+                return val;
+            }
+        });
+        console.log(newArr);
+
+    </script>
+</body>
+
+</html>
