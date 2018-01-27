@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <h1 id="h1"></h1>
+
+    <script>
+        /* let obj = {};
+
+                Object.defineProperty(obj, 'name', {
+                    get(val){
+                        console.log('get');
+                        console.log(val);
+                    },
+                    set(val){
+                        console.log('set');
+                        console.log(val);
+                    }
+                });
+
+                obj.name = 'zs';
+                console.log(obj.name); */
+
+        /* var obj = {};
+        var initValue = 'hello';
+        Object.defineProperty(obj, "newKey", {
+            get: function () {
+                //当获取值的时候触发的函数
+                return initValue;
+            },
+            set: function (value) {
+                //当设置值的时候触发的函数,设置的新值通过参数value拿到
+                initValue = value;
+            }
+        });
+        //获取值
+        console.log(obj.newKey); //hello
+
+        //设置值
+        obj.newKey = 'change value';
+
+        console.log(obj.newKey); //change value */
+
+        let oIpt = document.getElementById('ipt');
+        let oH1 = document.getElementById('h1');
+        let obj = {};
+
+        oIpt.onkeyup = function(){
+            obj.name = this.value;
+        };
+
+        Object.defineProperty(obj, 'name', {
+            get(){
+
+            },
+            set(val){
+                oH1.innerHTML = val;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

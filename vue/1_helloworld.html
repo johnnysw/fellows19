@@ -22,8 +22,13 @@
         // 类 对象
         let vm = new Vue({
             el: '#app',
-            data: {
+            /* data: {
                 msg: 'Hello World'
+            } */
+            data(){
+                return {
+                    msg: 'Hello World'
+                };
             }
         });
         console.log(vm);
