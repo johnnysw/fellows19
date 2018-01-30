@@ -14,6 +14,7 @@
       <router-link to="/testUrl/5/zhangsan">测试URL</router-link>
       <router-link to="/home/8/lisi">重定向</router-link>
       <router-link to="/abc">alias</router-link>
+      <router-link to="/couter">vuex</router-link>
     </div>
     <transition name="fade">
       <router-view/>

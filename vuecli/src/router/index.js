@@ -6,6 +6,8 @@ import Test1 from '@/components/Test1'
 import Test2 from '@/components/Test2'
 import TestUrl from '@/components/TestUrl'
 import Error404 from '@/components/Error404'
+import Counter from '@/components/Counter'
+
 
 Vue.use(Router)
 
@@ -48,6 +50,9 @@ export default new Router({
     }, {
       path: '*',
       component: Error404
+    }, {
+      path: '/couter',
+      component: Counter
     }
   ]
 })
