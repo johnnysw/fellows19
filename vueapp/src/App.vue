@@ -3,7 +3,7 @@
     <common-header :bgColor="bg" @home="home">
       <span slot="title">{{ title }}</span>
     </common-header>
-    <router-view/>
+    <router-view class="content"/>
     <common-footer @change="switchTab" :bgColor="bg"></common-footer>
   </div>
 </template>
@@ -53,5 +53,7 @@ export default {
 </script>
 
 <style>
-
+.content{
+  margin: 1rem 0;
+}
 </style>

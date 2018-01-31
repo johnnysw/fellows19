@@ -4,6 +4,7 @@ import Movie from '@/components/movie/Movie'
 import Music from '@/components/music/Music'
 import Book from '@/components/book/Book'
 import Photo from '@/components/photo/Photo'
+import MovieDetail from '@/components/movie/MovieDetail'
 
 Vue.use(Router)
 
@@ -33,5 +34,8 @@ export default new Router({
     beforeEnter(to, from, next){
       from.name === null ? next('/') : next();
     }
+  }, {
+    path: '/moviedetail/:movieId',
+    component: MovieDetail
   }]
 })
