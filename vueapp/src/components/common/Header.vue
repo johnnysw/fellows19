@@ -16,7 +16,6 @@ export default {
 <style scoped>
 .header{
     height: 1rem;
-    /* background-color: rgb(33, 150, 243); */
     line-height: 1rem;
     color: #fff;
     position: fixed;
@@ -33,7 +32,6 @@ export default {
 
 .home{
     color: #fff;
-    /* background-color: rgb(33, 150, 243); */
     margin-left: .1rem;
 }
 </style>

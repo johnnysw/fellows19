@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       bg: "rgb(33, 150, 243)",
-      title: "Movie"
+      title: "movie"
     };
   },
   methods: {
