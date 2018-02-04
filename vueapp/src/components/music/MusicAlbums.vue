@@ -1,6 +1,4 @@
 <template>
-    <!-- <h1>{{ $route.params.musicId }}</h1> -->
-
     <aplayer autoplay :music="musicList" v-if="loadSuccess" :showlrc="true" :mutex="true"></aplayer>
 </template>
 

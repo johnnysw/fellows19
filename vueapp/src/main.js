@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from '@/vuex/store.js'
+import VueTouch from 'vue-touch'
+Vue.use(VueTouch, {name: 'v-touch'});
 
 import './assets/js/rem.js'
 import './assets/css/reset.css'
@@ -16,6 +19,7 @@ global.API_PROXY = 'https://bird.ioliu.cn/v2/?url='
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
