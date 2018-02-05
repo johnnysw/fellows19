@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>www.a.com index7.html</h1>
+
+    <iframe id="ifm" src="http://www.b.com/index3.html" frameborder="0"></iframe>
+
+    <script>
+        let oIfm = document.querySelector('#ifm');
+        oIfm.onload = function(){
+            let win = oIfm.contentWindow;
+            win.postMessage({
+                name: 'zhangsan',
+                age: 18
+            }, 'http://www.b.com/index3.html');
+        };
+
+        window.onmessage = function(e){
+            console.log(e.data);
+        };
+    
+    
+    
+    </script>
+</body>
+</html>

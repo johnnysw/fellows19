@@ -1,0 +1,20 @@
+跨域   同源策略
+
+1、不同域之间：  
+    http://www.a.com   http://www.b.com
+2、不同端口号
+    http://www.a.com:8080   http://www.a.com:8081
+3、协议不同
+    http://www.a.com   https://www.a.com
+4、主域和子域
+    http://www.qq.com   http://news.qq.com
+
+
+1、服务器代理
+2、jsonp   json padding
+3、iframe
+4、postMessage
+5、CORS
+......
+
+
